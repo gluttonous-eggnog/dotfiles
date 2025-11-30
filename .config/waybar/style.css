@@ -1,0 +1,156 @@
+* {
+    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar {
+    /*background-color: #0f1117;*/
+    background-color: transparent;
+    color: #0f1117;
+    font-size: 14px;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0;
+}
+
+/* Left-most: Arch icon */
+#custom-appmenu {
+  font-size: 4;
+  background-image: url('/usr/share/icons/cachyos.svg');
+  background-color: #1e222a;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 10px;
+  padding: 0px 12px;
+  margin: 3px 5px;
+}
+
+/* Clock */
+#clock {
+    font-size: 16px;
+    background-color: #1e222a;
+    color: #c0c0c0;
+    border-radius: 10px;
+    padding: 0px 10px;
+    margin: 3px 5px;
+}
+
+/* Active window title */
+#window {
+    font-size: 14px;
+    font-weight: 800;
+    color: #e0e0e0;
+    border-radius: 0px;
+    padding: 4px 12px;
+    background-color: #1e222a;
+}
+
+/* Workspace container */
+#niri-workspaces {
+    background: #1e222a;
+    font-weight: bold;
+    border-radius: 14px;
+    padding: 0px 10px;
+    font-size: 8px;
+    color: #e0e0e0;
+}
+
+/* Individual workspace buttons */
+#niri-workspaces button {
+    /*padding: 5px 5px;*/
+    margin: 5px 5px;
+    border-radius: 6px;
+    font-size: 8px;
+}
+
+#workspaces button.active {
+    /*border-radius: 0px;
+    color: #0f1117;*/
+    color: @foreground;
+    background: #00ac89;
+}
+
+#workspaces button:hover {
+    background: #0d3531;
+}
+
+/* Power/exit button */
+#custom-exit {
+    background-color: #00ac89;
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f1117;
+    padding: 0px 6px;
+    margin: 2px 2px 2px 0;
+}
+
+/* Tooltips */
+tooltip {
+    border-radius: 12px;
+    background-color: #0f1117;
+    color: #c0c0c0;
+    padding: 4px 8px;
+}
+
+/* Taskbar */
+#taskbar {
+    background-color: #1e222a;
+    margin: 3px 0px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    font-weight: normal;
+}
+
+/* All system info modules */
+#backlight,
+#pulseaudio,
+#bluetooth,
+#cpu,
+#memory,
+#battery,
+#tray,
+#network {
+    background-color: #1e222a;
+    color: #c0c0c0;
+    border-radius: 10px;
+    padding: 0px 8px;
+    margin: 3px 5px;
+}
+
+#custom-updates,
+#custom-notification {
+    background-color: #1e222a;
+    font-size: 14px;
+    font-weight: 800;
+    color: #c0c0c0;
+    border-radius: 0px;
+    padding: 4px 10px;
+}
+
+#battery {
+    color: #c0caf5;
+}
+
+#battery.charging {
+    color: #26a65b;
+}
+
+/* Battery critical warning */
+#battery.critical:not(.charging) {
+    background-color: #e65100;
+    color: #ffffff;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #0f1117;
+        color: #ffffff;
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "layer": "top",
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+
+    "modules-left": [
+        "custom/appmenu",
+        "wlr/taskbar",
+        "niri/workspaces",
+        "tray"
+    ],
+
+    "modules-center": [
+        /*"niri/window",
+        "cpu",*/
+        "clock"
+    ],
+
+    "modules-right": [
+        /*"tray",*/
+        "network",
+        "pulseaudio",
+        "battery",
+        "custom/exit"
+    ]
+}
