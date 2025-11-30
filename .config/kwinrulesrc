@@ -1,0 +1,23 @@
+Description=Settings for discord
+position=1280,70
+positionrule=3
+size=1260,1350
+sizerule=3
+wmclass=discord
+wmclassmatch=1
+
+Description=Settings for firefox
+position=20,70
+positionrule=3
+size=1260,1350
+sizerule=3
+wmclass=firefox
+wmclassmatch=1
+
+Description=Settings for org.kde.kate
+position=1280,70
+positionrule=3
+size=1260,1350
+sizerule=3
+wmclass=org.kde.kate
+wmclassmatch=1
