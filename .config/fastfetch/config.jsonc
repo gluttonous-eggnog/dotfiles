@@ -1,18 +1,19 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
     "logo": {
-        "type": "auto",
-        "source": "arch2",
-        "height": 15,
-        "width": 20,
+        "source":"~/.config/fastfetch/ascii_logo.txt",
+//        "type": "auto",
+//        "source": "arch2",
+//        "height": 15,
+//        "width": 20,
         "padding": {
-            "top": 5,
-            "left": 12,
-            "right": 5
-        },
-        "color": {
-        "1": "cyan",
-        "2": "blue"
+//            "top": 5,
+            "left": 8
+//            "right": 5
+//        },
+//        "color": {
+//        "1": "cyan",
+//        "2": "blue"
         }
     },
     "modules": [
@@ -44,7 +45,7 @@
 //            "key": "│ ├ ",
             "key": "│ ├{icon} ",
             "keyColor": "green",
-            "format": "{total} DDR5 ({percentage}) @ 6000MT/s"
+            "format": "{total} DDR5 ({percentage}) @ 6000 MT/s"
         },
         {
             "type": "disk",
@@ -66,18 +67,16 @@
             "key": "󰍹 OS",
             "keyColor": "yellow"
         },
+//        {
+//            "type": "bios",
+//            "key": "│ ├ ",
+//            "keyColor": "yellow",
+//            "format": "{5} {4} ({2})"
+//        },
         {
             "type": "kernel",
             "key": "│ ├󰒋 ",
             "keyColor": "yellow"
-        },
-        {
-//            "type": "bootmgr",
-            "type": "bios",
-            "key": "│ ├ ",
-            "keyColor": "yellow",
-//            "format":"{firmware-name}"
-            "format": "{5} {4} ({2})"
         },
         {
             "type": "packages",
@@ -121,6 +120,12 @@
         {
             "type": "custom",
             "format": "\u001b[90m┌─────────────────────────STATUS─────────────────────────┐"
+        },
+        {
+            "type": "bios",
+            "key": "│ ASRock",
+            "keyColor": "white",
+            "format": "{5} {4} (Issued:{1})"
         },
         {
             "type": "command",
