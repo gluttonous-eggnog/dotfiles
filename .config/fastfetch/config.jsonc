@@ -6,66 +6,78 @@
 //        "source": "arch2",
 //        "height": 15,
 //        "width": 20,
-        "padding": {
+//        "padding": {
 //            "top": 5,
-            "left": 8
+//            "left": 8
 //            "right": 5
 //        },
 //        "color": {
 //        "1": "cyan",
 //        "2": "blue"
-        }
+//        }
+    },
+    "display": {
+        "separator": " ",
     },
     "modules": [
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌────────────────────────HARDWARE────────────────────────┐"
+            "format": "\u001b[90m┌───┐┌─── HARDWARE ───────────────────┐"
         },
         {
+            // {family} {name} {version} {sku} {vendor} {serial} {uuid}
             "type": "host",
-            "key": " PC",
-            "keyColor": "green"
+//            "key": "│ PC│",
+            "key": "\u001b[90m│\u001b[32m{icon}PC\u001b[90m││",
+//            "keyColor": "green",
+            "format": "{vendor} {name}\t\u001b[90m │"
         },
         {
+            // {name} {vendor} {core-physical} {cores-online} {freq-base} {freq-max} {temperature} {core-types} {packages} {march} {numa-nodes}
             "type": "cpu",
 //            "key": "│ ├󰻠 ",
-            "key": "│ ├{icon} ",
-            "keyColor": "green"
+            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
+//            "keyColor": "green",
+            "format": "{name} ({cores-physical} cores)\t\u001b[90m │"
         },
         {
+            // {vendor} {name} {driver} {temperature} {core-count} {type} {dedicated-total} {shared-total} {shared-used} {frequencey} {index} {dedicated-percentage-num} {dedicated-percentage-bar} {shared-percentage-num} {shared-percentage-bar} {core-usuage-num} {core-usage-bar} {memory-type}
             "type": "gpu",
 //            "key": "│ ├󰢮 ",
-            "key": "│ ├{icon} ",
-            "keyColor": "green",
-            "format": "{name}"
+            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
+//            "keyColor": "green",
+            "format": "{name} (16Gb)\t\u001b[90m │"
         },
         {
+            // {used} {total} {percentage} {percentage-bar}
             "type": "memory",
 //            "key": "│ ├ ",
-            "key": "│ ├{icon} ",
-            "keyColor": "green",
-            "format": "{total} DDR5 ({percentage}) @ 6000 MT/s"
+            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
+//            "keyColor": "green",
+            "format": "{total} DDR5 ({percentage}) @ 6000 MT/s\u001b[90m│"
         },
         {
+            // {size-used} {size-total} {size-percentage} {files-used} {is-external} {is-hidden} {name} {is-readonly} {crete-time} {size-percentage-bar} {files-percentage-bar} {mountpoint} {mount-from}
             "type": "disk",
-            "key": "└ └󰋊 ",
-            "keyColor": "green",
-            "format": "[{mountpoint}] {size-total} ({size-percentage}) {filesystem}"
+            "key": "\u001b[90m│\u001b[32m└󰋊 \u001b[90m││",
+//            "keyColor": "green",
+            "format": "[{mountpoint<5}] {size-total} ({size-percentage}) {filesystem}\t\u001b[90m │"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└───┘└────────────────────────────────┘"
         },
-//        "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌────────────────────────SOFTWARE────────────────────────┐"
+            "format": "\u001b[90m┌───┐┌─── SOFTWARE ───────────────────┐"
         },
         {
+            // {sysname} {name} {pretty-name} {id} {id-like} {variant} variant-id} {version} {version-id} {codename} {build-id} {arch}
             "type": "os",
-            "key": "󰍹 OS",
-            "keyColor": "yellow"
+            "key": "\u001b[90m│\u001b[33m󰍹OS\u001b[90m││",
+//            "keyColor": "yellow",
+            "format": "{pretty-name} {arch}\t\t\u001b[90m │"
         },
 //        {
 //            "type": "bios",
@@ -74,80 +86,110 @@
 //            "format": "{5} {4} ({2})"
 //        },
         {
+            // {sysname} {release} {version} {arch} {display-version} {page-size}
             "type": "kernel",
-            "key": "│ ├󰒋 ",
-            "keyColor": "yellow"
+            "key": "\u001b[90m│\u001b[33m├󰒋 \u001b[90m││",
+//            "keyColor": "yellow",
+            "format": "{sysname} {release}\t\t\u001b[90m │"
         },
         {
             "type": "packages",
-            "key": "│ ├󰏖 ",
-            "keyColor": "yellow"
+            "key": "\u001b[90m│\u001b[33m├󰏖 \u001b[90m││",
+//            "keyColor": "yellow",
+            "format": "{pacman} (pacman)\t\t\t\u001b[90m │"
         },
         {
             "type": "shell",
 //            "key": "└ └ ",
-            "key":"└ └{icon} ",
-            "keyColor": "yellow"
+            "key":"\u001b[90m│\u001b[33m└{icon} \u001b[90m││",
+//            "keyColor": "yellow",
+            "format": "{pretty-name} {version}\t\t\t\u001b[90m │"
         },
-        "break",
+//        "break",
         {
             "type": "de",
-            "key": " DE",
-            "keyColor": "blue"
+            "key": "\u001b[90m│\u001b[34mDE\u001b[90m││",
+//            "keyColor": "blue",
+            "format": "{pretty-name} {version}\t\t\u001b[90m │"
         },
         {
             "type": "wm",
-            "key": "│ ├󱂬 ",
-            "keyColor": "blue"
+            "key": "\u001b[90m│\u001b[34m├󱂬 \u001b[90m││",
+//            "keyColor": "blue",
+            "format": "{pretty-name} ({protocol-name})\t\t\u001b[90m │"
         },
         {
             "type": "terminal",
 //            "key": "│ ├ ",
-            "key":"│ ├{icon} ",
-            "keyColor": "blue"
+            "key":"\u001b[90m│\u001b[34m├{icon} \u001b[90m││",
+//            "keyColor": "blue",
+            "format": "{pretty-name} {version}\t\t\u001b[90m │"
         },
         {
             "type": "display",
-            "key": "└ └󰹑 ",
-            "keyColor": "blue",
-            "format": "{width}x{height} @ {refresh-rate} Hz [{type}]"
+            "key": "\u001b[90m│\u001b[34m└󰹑 \u001b[90m││",
+//            "keyColor": "blue",
+            "format": "{width}x{height} @ {refresh-rate} Hz ({name})\u001b[90m │"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└───┘└────────────────────────────────┘"
         },
 //        "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────────────────────STATUS─────────────────────────┐"
+            "format": "     \u001b[90m┌─── STATUS ─────────────────┐"
         },
         {
             "type": "bios",
-            "key": "│ ASRock",
-            "keyColor": "white",
-            "format": "{5} {4} (Issued:{1})"
+            "key": "     \u001b[90m│\u001b[37m BIOS Ver:",
+//            "keyColor": "white",
+            "format": "{type} {version}\t\u001b[90m     │"
         },
         {
             "type": "command",
-            "key": "│ OS Installed",
-            "keyColor": "white",
-            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days ago"
+            "key": "     \u001b[90m│\u001b[37m OS Installed:",
+//            "keyColor": "white",
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days ago\t\u001b[90m│"
         },
         {
             "type": "uptime",
-            "key": "│ Uptime",
-            "keyColor": "white"
+            "key": "     \u001b[90m│\u001b[37m Uptime:",
+//            "keyColor": "white",
+            "format": "{formatted<16}\u001b[90m   │"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└────────────────────────────────────────────────────────┘"
+            "format": "     \u001b[90m└────────────────────────────┘"
         },
         {
             "type": "colors",
-            "paddingLeft": 2,
+            "paddingLeft": 7,
             "symbol": "circle"
         }
 
     ]
 }
 
+/*
+Key Format Structure Explanation:
+
+The key format uses a combination of:
+1. Unicode box drawing characters (│ ┌ ┐ └ ┘ ┬ ┴ ├ ┤) for borders
+2. ANSI escape codes for cursor positioning (\u001b[...)
+3. Format variables ({icon}, {sysname}, etc.)
+4. Constant references ({$1}, {$2}, etc.)
+5. Color formatting ({#color})
+
+ANSI Escape Codes Used:
+- \u001b[s      - Save cursor position (ESC[s)
+- \u001b[u      - Restore cursor position (ESC[u)
+- \u001b[nC     - Move cursor right n columns (ESC[nC)
+- \u001b[nD     - Move cursor left n columns (ESC[nD)
+
+This creates a table-like layout with fixed column widths and proper alignment,
+regardless of the actual content length in each field.
+
+For more ANSI escape code reference, see:
+https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797#cursor-controls
+*/
