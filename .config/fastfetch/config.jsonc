@@ -17,128 +17,138 @@
 //        }
     },
     "display": {
+        "constants": [
+            "\u001b[90m                                │\u001b[33D\u001b[39m"
+        ],
         "separator": " ",
     },
     "modules": [
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌───┐┌─── HARDWARE ───────────────────┐"
+            "format": "\u001b[90m╭───╮╭─── HARDWARE ────────────────────╮"
         },
         {
             // {family} {name} {version} {sku} {vendor} {serial} {uuid}
-            "type": "host",
 //            "key": "│ PC│",
-            "key": "\u001b[90m│\u001b[32m{icon}PC\u001b[90m││",
 //            "keyColor": "green",
-            "format": "{vendor} {name}\t\u001b[90m │"
+//            "format": "{vendor} {name<18}\t\u001b[90m  │"
+            "type": "host",
+            "key": "\u001b[90m│\u001b[32m{icon}PC\u001b[90m││",
+            "format": "{$1}{vendor} {name}"
         },
         {
             // {name} {vendor} {core-physical} {cores-online} {freq-base} {freq-max} {temperature} {core-types} {packages} {march} {numa-nodes}
-            "type": "cpu",
 //            "key": "│ ├󰻠 ",
-            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
 //            "keyColor": "green",
-            "format": "{name} ({cores-physical} cores)\t\u001b[90m │"
+//           "format": "{name} ({cores-physical}-Core)\t\u001b[90m  │"
+            "type": "cpu",
+            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
+            "format": "{$1}{name} ({cores-physical}-Core)"
         },
         {
             // {vendor} {name} {driver} {temperature} {core-count} {type} {dedicated-total} {shared-total} {shared-used} {frequencey} {index} {dedicated-percentage-num} {dedicated-percentage-bar} {shared-percentage-num} {shared-percentage-bar} {core-usuage-num} {core-usage-bar} {memory-type}
-            "type": "gpu",
 //            "key": "│ ├󰢮 ",
-            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
 //            "keyColor": "green",
-            "format": "{name} (16Gb)\t\u001b[90m │"
+//            "format": "{name} (16Gb)\t\u001b[90m  │"
+            "type": "gpu",
+            "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
+            "format": "{$1}{name} (16GB)"
         },
         {
             // {used} {total} {percentage} {percentage-bar}
-            "type": "memory",
 //            "key": "│ ├ ",
+//            "keyColor": "green",
+//            "format": "{total} DDR5 @ 6000 MT/s ({percentage>3})\u001b[90m│"
+            "type": "memory",
             "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
-//            "keyColor": "green",
-            "format": "{total} DDR5 ({percentage}) @ 6000 MT/s\u001b[90m│"
+            "format": "{$1}{total:5}GB DDR5 ({percentage}) @ 6000 MT/s"
         },
         {
-            // {size-used} {size-total} {size-percentage} {files-used} {is-external} {is-hidden} {name} {is-readonly} {crete-time} {size-percentage-bar} {files-percentage-bar} {mountpoint} {mount-from}
+            // {size-used} {size-total} {size-percentage} {files-used} {is-external} {is-hidden} {name} {is-readonly} {create-time} {size-percentage-bar} {files-percentage-bar} {mountpoint} {mount-from}
+//            "keyColor": "green",
+//            "format": "[{mountpoint|5}] {filesystem} {size-total<13} ({size-percentage>3})\u001b[90m│"
             "type": "disk",
-            "key": "\u001b[90m│\u001b[32m└󰋊 \u001b[90m││",
-//            "keyColor": "green",
-            "format": "[{mountpoint<5}] {size-total} ({size-percentage}) {filesystem}\t\u001b[90m │"
+            "key": "\u001b[90m│\u001b[32m╰󰋊 \u001b[90m││",
+            "format": "{$1}[{mountpoint}] {size-total:6}GB ({size-percentage}) {filesystem}"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└───┘└────────────────────────────────┘"
+            "format": "\u001b[90m╰───╯╰─────────────────────────────────╯"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m┌───┐┌─── SOFTWARE ───────────────────┐"
+            "format": "\u001b[90m╭───╮╭─── SOFTWARE ────────────────────╮"
         },
         {
             // {sysname} {name} {pretty-name} {id} {id-like} {variant} variant-id} {version} {version-id} {codename} {build-id} {arch}
+//            "keyColor": "yellow",
+//            "format": "{pretty-name} {arch}\t\t\u001b[90m  │"
             "type": "os",
             "key": "\u001b[90m│\u001b[33m󰍹OS\u001b[90m││",
-//            "keyColor": "yellow",
-            "format": "{pretty-name} {arch}\t\t\u001b[90m │"
+            "format": "{$1}{pretty-name} {arch}"
         },
-//        {
-//            "type": "bios",
-//            "key": "│ ├ ",
-//            "keyColor": "yellow",
-//            "format": "{5} {4} ({2})"
-//        },
         {
             // {sysname} {release} {version} {arch} {display-version} {page-size}
+//            "keyColor": "yellow",
+//            "format": "{sysname} {release<26}\u001b[90m│"
             "type": "kernel",
             "key": "\u001b[90m│\u001b[33m├󰒋 \u001b[90m││",
-//            "keyColor": "yellow",
-            "format": "{sysname} {release}\t\t\u001b[90m │"
+            "format": "{$1}{sysname} {release}"
         },
         {
-            "type": "packages",
-            "key": "\u001b[90m│\u001b[33m├󰏖 \u001b[90m││",
 //            "keyColor": "yellow",
-            "format": "{pacman} (pacman)\t\t\t\u001b[90m │"
+//            "format": "{pacman} (pacman)\t\t\t\u001b[90m  │"
+        "type": "packages",
+            "key": "\u001b[90m│\u001b[33m├󰏖 \u001b[90m││",
+            "format": "{$1}{pacman} (pacman)"
         },
         {
             "type": "shell",
-//            "key": "└ └ ",
-            "key":"\u001b[90m│\u001b[33m└{icon} \u001b[90m││",
+//            "key": "╰ ╰ ",
 //            "keyColor": "yellow",
-            "format": "{pretty-name} {version}\t\t\t\u001b[90m │"
+//            "format": "{pretty-name} {version<25}\u001b[90m  │"
+            "key":"\u001b[90m│\u001b[33m╰{icon} \u001b[90m││",
+            "format": "{$1}{pretty-name} {version}"
         },
 //        "break",
         {
+//            "keyColor": "blue",
+//            "format": "{pretty-name} {version<21}\u001b[90m│"
             "type": "de",
             "key": "\u001b[90m│\u001b[34mDE\u001b[90m││",
-//            "keyColor": "blue",
-            "format": "{pretty-name} {version}\t\t\u001b[90m │"
+            "format": "{$1}{pretty-name} {version}"
         },
         {
+//            "keyColor": "blue",
+//            "format": "{pretty-name} ({protocol-name})\t\t\u001b[90m  │"
             "type": "wm",
             "key": "\u001b[90m│\u001b[34m├󱂬 \u001b[90m││",
-//            "keyColor": "blue",
-            "format": "{pretty-name} ({protocol-name})\t\t\u001b[90m │"
+            "format": "{$1}{pretty-name} ({protocol-name})"
         },
         {
-            "type": "terminal",
 //            "key": "│ ├ ",
-            "key":"\u001b[90m│\u001b[34m├{icon} \u001b[90m││",
 //            "keyColor": "blue",
-            "format": "{pretty-name} {version}\t\t\u001b[90m │"
+//            "format": "{pretty-name} {version<20}\u001b[90m  │"
+            "type": "terminal",
+            "key":"\u001b[90m│\u001b[34m├{icon} \u001b[90m││",
+            "format": "{$1}{pretty-name} {version}"
         },
         {
-            "type": "display",
-            "key": "\u001b[90m│\u001b[34m└󰹑 \u001b[90m││",
 //            "keyColor": "blue",
-            "format": "{width}x{height} @ {refresh-rate} Hz ({name})\u001b[90m │"
+//            "format": "{width}x{height} @ {refresh-rate} Hz ({name})\u001b[90m  │"
+            "type": "display",
+            "key": "\u001b[90m│\u001b[34m╰󰹑 \u001b[90m││",
+            "format": "{$1}{width}x{height} @ {refresh-rate} Hz ({name})"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└───┘└────────────────────────────────┘"
+            "format": "\u001b[90m╰───╯╰─────────────────────────────────╯"
         },
 //        "break",
         {
             "type": "custom",
-            "format": "     \u001b[90m┌─── STATUS ─────────────────┐"
+            "format": "     \u001b[90m╭─── STATUS ─────────────────╮"
         },
         {
             "type": "bios",
@@ -160,7 +170,7 @@
         },
         {
             "type": "custom",
-            "format": "     \u001b[90m└────────────────────────────┘"
+            "format": "     \u001b[90m╰────────────────────────────╯"
         },
         {
             "type": "colors",
@@ -175,7 +185,7 @@
 Key Format Structure Explanation:
 
 The key format uses a combination of:
-1. Unicode box drawing characters (│ ┌ ┐ └ ┘ ┬ ┴ ├ ┤) for borders
+1. Unicode box drawing characters (│ ╭ ╮ ╰ ╯ ┬ ┴ ├ ┤) for borders
 2. ANSI escape codes for cursor positioning (\u001b[...)
 3. Format variables ({icon}, {sysname}, etc.)
 4. Constant references ({$1}, {$2}, etc.)
