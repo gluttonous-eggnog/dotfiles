@@ -30,44 +30,31 @@
         },
         {
             // {family} {name} {version} {sku} {vendor} {serial} {uuid}
-//            "key": "│ PC│",
-//            "keyColor": "green",
-//            "format": "{vendor} {name<18}\t\u001b[90m  │"
+            // "\u001b[32m" = green
             "type": "host",
             "key": "\u001b[90m│\u001b[32m{icon}PC\u001b[90m││",
             "format": "{$1}{vendor} {name}"
         },
         {
             // {name} {vendor} {core-physical} {cores-online} {freq-base} {freq-max} {temperature} {core-types} {packages} {march} {numa-nodes}
-//            "key": "│ ├󰻠 ",
-//            "keyColor": "green",
-//           "format": "{name} ({cores-physical}-Core)\t\u001b[90m  │"
             "type": "cpu",
             "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
             "format": "{$1}{name} ({cores-physical}-Core)"
         },
         {
             // {vendor} {name} {driver} {temperature} {core-count} {type} {dedicated-total} {shared-total} {shared-used} {frequencey} {index} {dedicated-percentage-num} {dedicated-percentage-bar} {shared-percentage-num} {shared-percentage-bar} {core-usuage-num} {core-usage-bar} {memory-type}
-//            "key": "│ ├󰢮 ",
-//            "keyColor": "green",
-//            "format": "{name} (16Gb)\t\u001b[90m  │"
             "type": "gpu",
             "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
             "format": "{$1}{name} (16GB)"
         },
         {
             // {used} {total} {percentage} {percentage-bar}
-//            "key": "│ ├ ",
-//            "keyColor": "green",
-//            "format": "{total} DDR5 @ 6000 MT/s ({percentage>3})\u001b[90m│"
             "type": "memory",
             "key": "\u001b[90m│\u001b[32m├{icon} \u001b[90m││",
             "format": "{$1}{total:5}GB DDR5 ({percentage}) @ 6000 MT/s"
         },
         {
             // {size-used} {size-total} {size-percentage} {files-used} {is-external} {is-hidden} {name} {is-readonly} {create-time} {size-percentage-bar} {files-percentage-bar} {mountpoint} {mount-from}
-//            "keyColor": "green",
-//            "format": "[{mountpoint|5}] {filesystem} {size-total<13} ({size-percentage>3})\u001b[90m│"
             "type": "disk",
             "key": "\u001b[90m│\u001b[32m╰󰋊 \u001b[90m││",
             "format": "{$1}[{mountpoint}] {size-total:6}GB ({size-percentage}) {filesystem}"
@@ -82,61 +69,44 @@
         },
         {
             // {sysname} {name} {pretty-name} {id} {id-like} {variant} variant-id} {version} {version-id} {codename} {build-id} {arch}
-//            "keyColor": "yellow",
-//            "format": "{pretty-name} {arch}\t\t\u001b[90m  │"
+            // "\u001b[33m" = yellow
             "type": "os",
             "key": "\u001b[90m│\u001b[33m󰍹OS\u001b[90m││",
             "format": "{$1}{pretty-name} {arch}"
         },
         {
             // {sysname} {release} {version} {arch} {display-version} {page-size}
-//            "keyColor": "yellow",
-//            "format": "{sysname} {release<26}\u001b[90m│"
             "type": "kernel",
             "key": "\u001b[90m│\u001b[33m├󰒋 \u001b[90m││",
             "format": "{$1}{sysname} {release}"
         },
         {
-//            "keyColor": "yellow",
-//            "format": "{pacman} (pacman)\t\t\t\u001b[90m  │"
-        "type": "packages",
+            "type": "packages",
             "key": "\u001b[90m│\u001b[33m├󰏖 \u001b[90m││",
             "format": "{$1}{pacman} (pacman)"
         },
         {
             "type": "shell",
-//            "key": "╰ ╰ ",
-//            "keyColor": "yellow",
-//            "format": "{pretty-name} {version<25}\u001b[90m  │"
             "key":"\u001b[90m│\u001b[33m╰{icon} \u001b[90m││",
             "format": "{$1}{pretty-name} {version}"
         },
-//        "break",
         {
-//            "keyColor": "blue",
-//            "format": "{pretty-name} {version<21}\u001b[90m│"
+            // "\u001b[34m" = blue
             "type": "de",
             "key": "\u001b[90m│\u001b[34mDE\u001b[90m││",
             "format": "{$1}{pretty-name} {version}"
         },
         {
-//            "keyColor": "blue",
-//            "format": "{pretty-name} ({protocol-name})\t\t\u001b[90m  │"
             "type": "wm",
             "key": "\u001b[90m│\u001b[34m├󱂬 \u001b[90m││",
             "format": "{$1}{pretty-name} ({protocol-name})"
         },
         {
-//            "key": "│ ├ ",
-//            "keyColor": "blue",
-//            "format": "{pretty-name} {version<20}\u001b[90m  │"
             "type": "terminal",
             "key":"\u001b[90m│\u001b[34m├{icon} \u001b[90m││",
             "format": "{$1}{pretty-name} {version}"
         },
         {
-//            "keyColor": "blue",
-//            "format": "{width}x{height} @ {refresh-rate} Hz ({name})\u001b[90m  │"
             "type": "display",
             "key": "\u001b[90m│\u001b[34m╰󰹑 \u001b[90m││",
             "format": "{$1}{width}x{height} @ {refresh-rate} Hz ({name})"
@@ -145,27 +115,25 @@
             "type": "custom",
             "format": "\u001b[90m╰───╯╰─────────────────────────────────╯"
         },
-//        "break",
         {
             "type": "custom",
             "format": "     \u001b[90m╭─── STATUS ─────────────────╮"
         },
         {
+            // "\u001b[37m" = white
             "type": "bios",
             "key": "     \u001b[90m│\u001b[37m BIOS Ver:",
-//            "keyColor": "white",
-            "format": "{type} {version}\t\u001b[90m     │"
+            "format": "{version} ({type})\t\u001b[90m     │"
         },
         {
             "type": "command",
             "key": "     \u001b[90m│\u001b[37m OS Installed:",
-//            "keyColor": "white",
-            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days ago\t\u001b[90m│"
+            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference",
+            "format": "{result} days ago\u001b[90m │"
         },
         {
             "type": "uptime",
             "key": "     \u001b[90m│\u001b[37m Uptime:",
-//            "keyColor": "white",
             "format": "{formatted<16}\u001b[90m   │"
         },
         {
